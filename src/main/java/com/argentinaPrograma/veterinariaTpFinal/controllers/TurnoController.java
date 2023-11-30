@@ -11,13 +11,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Date;
 
 @RestController
-@RequestMapping("/turnos")
 public class TurnoController {
 
     @Autowired
     private TurnoService turnoService;
 
-    @GetMapping("/generarGato")
+    @GetMapping("/generarTurnoGato")
     public TurnoMedico generarTurnoGato(
             @RequestParam String descripcion,
             @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date fecha,
@@ -27,7 +26,7 @@ public class TurnoController {
         return turnoService.generarTurnoGato(descripcion, fecha, hora, gato);
     }
 
-    @GetMapping("/generarPerro")
+    @GetMapping("/generarTurnoPerro")
     public TurnoMedico generarTurnoPerro(
             @RequestParam String descripcion,
             @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date fecha,
